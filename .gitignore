@@ -43,3 +43,8 @@ Thumbs.db
 
 60_DIAGNOSTICOS/*.log
 60_DIAGNOSTICOS/*.txt
+#Obsidian
+.obsidian
+.trash#Binarios
+*.pdf
+*.odt
