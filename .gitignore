@@ -1,0 +1,45 @@
+# .gitignore - Secretário-Agente LKE
+
+# ==========================================
+# CREDENCIAIS - NUNCA COMMITAR
+# ==========================================
+
+10_REFERENCIAS/credentials/
+credentials/
+*.json
+!package.json
+!package-lock.json
+*.pickle
+token*
+client_secret*
+*.key
+*.pem
+.env
+.env.*
+
+# ==========================================
+# ARQUIVOS TEMPORÁRIOS
+# ==========================================
+
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.cache/
+*.log
+
+# ==========================================
+# ARQUIVOS DE SISTEMA
+# ==========================================
+
+.DS_Store
+Thumbs.db
+*~
+._*
+
+# ==========================================
+# DADOS SENSÍVEIS
+# ==========================================
+
+60_DIAGNOSTICOS/*.log
+60_DIAGNOSTICOS/*.txt
