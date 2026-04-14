@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secretário-Agente LKE | Uma História de Evolução</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">LKE v5.0 | Cognição Desacoplada</div>
+            <h1>Secretário-Agente LKE</h1>
+            <p class="tagline">De um problema real a um sistema inteligente de automação jurídica</p>
+            <div class="scroll-indicator">
+                <span>Role para descobrir a história</span>
+                <div class="arrow"></div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="orbit">
+                <div class="planet center">LKE</div>
+                <div class="orbit-ring r1">
+                    <div class="moon m1">GitHub</div>
+                </div>
+                <div class="orbit-ring r2">
+                    <div class="moon m2">Google</div>
+                </div>
+                <div class="orbit-ring r3">
+                    <div class="moon m3">Supabase</div>
+                </div>
+                <div class="orbit-ring r4">
+                    <div class="moon m4">Telegram</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <h2>A Jornada</h2>
+        
+        <div class="timeline">
+            <!-- Event 1 -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <span class="day">13</span>
+                    <span class="month">ABR</span>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3>O Despertar</h3>
+                        <span class="commit-hash">a3a7844</span>
+                    </div>
+                    <p>Um advogado acordou cansado. O plano do dia precisava de ajuste. Múltiplos casos, prazos cruzados, repositórios dispersos. Da frustração nasceu uma pergunta:</p>
+                    <blockquote>"E se existisse um secretário que entendesse tudo?"</blockquote>
+                    <div class="tech-tags">
+                        <span class="tag">primeiro-commit</span>
+                        <span class="tag">estrutura-inicial</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <span class="day">13</span>
+                    <span class="month">ABR</span>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3>A Proposta</h3>
+                        <span class="commit-hash">8bc5b6c</span>
+                    </div>
+                    <p>Nasceu a visão: um sistema automatizado que opera como "secretário executivo", executando diariamente para consolidar projetos, gerar relatórios e detectar prazos.</p>
+                    <div class="architecture-diagram">
+                        <pre>
+┌─────────────────────────────────────────┐
+│         SECRETÁRIO-AGENTE LKE           │
+├─────────────────────────────────────────┤
+│  GitHub API → Cron Job → Telegram       │
+│       ↓           ↓           ↑         │
+│  Git Log      Hermes      Delivery      │
+└─────────────────────────────────────────┘
+                        </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <span class="day">13</span>
+                    <span class="month">ABR</span>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3>Autenticação OAuth2</h3>
+                        <span class="commit-hash">8428ca9</span>
+                    </div>
+                    <p>Primeiro grande marco: integração com Google Workspace. Calendar, Tasks, Drive - tudo conectado. O sistema passou a enxergar a agenda do advogado.</p>
+                    <div class="tech-tags">
+                        <span class="tag">oauth2</span>
+                        <span class="tag">google-workspace</span>
+                        <span class="tag">autenticação</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 4 -->
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <span class="day">14</span>
+                    <span class="month">ABR</span>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3>O Cérebro Relacional</h3>
+                        <span class="commit-hash">9682f69</span>
+                    </div>
+                    <p>SQLite era limitado. A migração para Supabase/PostgreSQL criou um "cérebro relacional" - consultas estruturadas, relacionamentos explícitos, acesso remoto via API REST.</p>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Clientes</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">Repositórios</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">21</span>
+                            <span class="stat-label">Commits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2>O que Ele Faz</h2>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Guardião de Credenciais</h3>
+                <p>Centraliza todas as credenciais OAuth2, API keys e tokens de autenticação de forma segura.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Gerenciador de Agenda</h3>
+                <p>Integra Google Calendar, Tasks e GitHub para visão consolidada de prazos e pendências.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Gerador de Relatórios</h3>
+                <p>Entrega diária via Telegram com resumo executivo, prioridades urgentes e ações sugeridas.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>Cérebro Relacional</h3>
+                <p>PostgreSQL no Supabase permite consultas estruturadas sem onerar contexto do agente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Report Section -->
+    <section class="report-section">
+        <h2>Um Relatório Típico</h2>
+        
+        <div class="report-preview">
+            <div class="report-header">
+                <span class="report-date">14/04/2026</span>
+                <span class="report-title">RELATÓRIO MATINAL</span>
+            </div>
+            <div class="report-content">
+                <div class="report-block">
+                    <h4>📅 AGENDA DO DIA</h4>
+                    <ul>
+                        <li>09:00 | Reunião EKWRio</li>
+                        <li>14:00 | Prazo - Tepedino (11 dias restantes)</li>
+                    </ul>
+                </div>
+                <div class="report-block urgent">
+                    <h4>🔴 PRIORIDADES URGENTES</h4>
+                    <ol>
+                        <li>inv_sa_02 - Prazo: 18/04</li>
+                        <li>ekwrio - Aguardando proposta</li>
+                        <li>caso-loreto-vivas - Aguardando docs</li>
+                    </ol>
+                </div>
+                <div class="report-block">
+                    <h4>📁 REPOSITÓRIOS ATIVOS</h4>
+                    <ul>
+                        <li>caso-leonardo-tepedino: LATENTE (3 dias)</li>
+                        <li>inv_sa_02: ATIVO (1 dia)</li>
+                        <li>ekwrio: ATIVO (2 dias)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="report-footer">
+                Gerado por Secretário-Agente LKE
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-section">
+        <h2>Tecnologias</h2>
+        
+        <div class="tech-flow">
+            <div class="tech-node">
+                <div class="tech-icon">🐍</div>
+                <span>Python</span>
+            </div>
+            <div class="tech-arrow">→</div>
+            <div class="tech-node">
+                <div class="tech-icon">🐘</div>
+                <span>PostgreSQL</span>
+            </div>
+            <div class="tech-arrow">→</div>
+            <div class="tech-node">
+                <div class="tech-icon">⚡</div>
+                <span>Supabase</span>
+            </div>
+            <div class="tech-arrow">→</div>
+            <div class="tech-node">
+                <div class="tech-icon">🤖</div>
+                <span>Hermes</span>
+            </div>
+            <div class="tech-arrow">→</div>
+            <div class="tech-node">
+                <div class="tech-icon">📱</div>
+                <span>Telegram</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap-section">
+        <h2>Roadmap</h2>
+        
+        <div class="roadmap">
+            <div class="roadmap-phase completed">
+                <div class="phase-header">
+                    <span class="phase-status">✓</span>
+                    <h3>Fase 1: Fundação</h3>
+                </div>
+                <ul>
+                    <li class="done">Estrutura de diretórios</li>
+                    <li class="done">OAuth2 Google Workspace</li>
+                    <li class="done">Migração para Supabase</li>
+                    <li class="done">Client Python</li>
+                </ul>
+            </div>
+            
+            <div class="roadmap-phase in-progress">
+                <div class="phase-header">
+                    <span class="phase-status">◐</span>
+                    <h3>Fase 2: Integração</h3>
+                </div>
+                <ul>
+                    <li class="doing">Skill Hermes Agent</li>
+                    <li>Funções de escrita</li>
+                    <li>Row Level Security</li>
+                    <li>Cron job automatizado</li>
+                </ul>
+            </div>
+            
+            <div class="roadmap-phase future">
+                <div class="phase-header">
+                    <span class="phase-status">○</span>
+                    <h3>Fase 3: Inteligência</h3>
+                </div>
+                <ul>
+                    <li>Detecção de padrões</li>
+                    <li>Priorização automática</li>
+                    <li>Sugestões de ação</li>
+                    <li>Dashboard web</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>LKE v5.0</h3>
+                <p>Cognição Desacoplada</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/peixoto-ops">GitHub</a>
+                <a href="https://here.now">here.now</a>
+            </div>
+            <div class="footer-credits">
+                <p>Gerado por Hermes Agent</p>
+                <p>Abril 2026</p>
+            </div>
+        </div>
+        <div class="footer-quote">
+            <blockquote>"O esquecimento seletivo preserva o que importa. Os commits são extratos concentrados."</blockquote>
+        </div>
+    </footer>
+</body>
+</html>

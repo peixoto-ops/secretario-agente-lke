@@ -25,19 +25,22 @@ secretario-agente-lke/
 │   └── PROPOSTA_SECRETARIO_AGENTE.md
 │
 ├── 30_IMPLEMENTACAO/            # Scripts e código
-│   ├── hermes_supabase_client.py    # Client Python para Supabase
-│   ├── migrate_to_supabase.py       # Script de migração SQLite→Supabase
-│   ├── secretario_cli.py            # CLI legado (SQLite)
-│   └── coletor_github.py            # Coleta de dados GitHub
+│   ├── hermes_supabase_client.py  # Client Python para Supabase
+│   ├── migrate_to_supabase.py     # Script de migração SQLite→Supabase
+│   ├── secretario_cli.py          # CLI legado (SQLite)
+│   └── coletor_github.py          # Coleta de dados GitHub
 │
 ├── 40_DOCUMENTOS/               # Relatórios e documentação
 │   ├── 41_supabase/             # Documentação do Supabase
-│   │   ├── MANUAL_SUPABASE.md       # Manual completo
-│   │   ├── SCHEMA_POSTGRESQL.md     # Schema do banco
-│   │   └── GUIA_RAPIDO.md           # Comandos essenciais
+│   │   ├── MANUAL_SUPABASE.md   # Manual completo
+│   │   ├── SCHEMA_POSTGRESQL.md # Schema do banco
+│   │   └── GUIA_RAPIDO.md       # Comandos essenciais
+│   ├── DIAGNOSTICO_CAPACIDADES_T1.5.3.md
+│   ├── ANALISE_AUTOMACAO_LKE_GH_OPS_AUDITOR.md
 │   ├── relatorio_consolidado.json
-│   ├── RELATORIO_SECRETARIO_AGENTE.md
-│   └── RELATORIO_SECRETARIO_AGENTE.pdf
+│   └── RELATORIO_SECRETARIO_AGENTE.md
+│
+├── 40_Documentos/               # Análises adicionais
 │
 ├── 50_CRON_JOBS/                # Configurações cron
 │   └── secretario-diario.sh
@@ -45,7 +48,13 @@ secretario-agente-lke/
 ├── 60_DIAGNOSTICOS/             # Logs e diagnósticos
 │
 ├── 90_META/                     # Documentação meta
-│   └── CATALOGO_REPOSITORIOS.md
+│   ├── CATALOGO_REPOSITORIOS.md
+│   ├── ESTRUTURA_JOHNNY_DECIMAL.md
+│   └── SESSAO_PRATICA_T1.5.4_20260413.md
+│
+├── site-narrativo/              # Site de demonstração
+│   ├── index.html
+│   └── css/style.css
 │
 ├── .env                         # Variáveis de ambiente (gitignored)
 ├── .gitignore                   # Proteção de credenciais
@@ -181,17 +190,39 @@ Entrega diária via Telegram:
 
 ---
 
-## Próximos Passos
+## Roadmap Atualizado
 
-1. [x] ~~Autenticar OAuth2 com novo Client ID~~
-2. [x] ~~Testar acesso ao Google Calendar~~
-3. [x] ~~Testar acesso ao Google Tasks~~
-4. [x] ~~Migrar para Supabase/PostgreSQL~~
-5. [x] ~~Criar client Python para consultas~~
-6. [ ] Integrar como skill do Hermes Agent
-7. [ ] Implementar funções de escrita (criar registros)
-8. [ ] Configurar Row Level Security (RLS)
-9. [ ] Primeira execução automatizada via cron
+### Fase 1 - Fundação ✅ (Concluída)
+- [x] Estrutura de diretórios Johnny.Decimal
+- [x] Autenticar OAuth2 com Google Workspace
+- [x] Testar acesso ao Google Calendar
+- [x] Testar acesso ao Google Tasks
+- [x] Migrar para Supabase/PostgreSQL
+- [x] Criar client Python para consultas
+- [x] Implementação inicial do módulo de redistribuição
+
+### Fase 2 - Integração ◐ (Em Andamento)
+- [ ] Integrar como skill do Hermes Agent
+- [ ] Implementar funções de escrita (criar registros)
+- [ ] Configurar Row Level Security (RLS)
+- [ ] Primeira execução automatizada via cron
+- [x] Análise de automação lke_gh_ops_auditor
+
+### Fase 3 - Inteligência (Futuro)
+- [ ] Detecção de padrões de atividade
+- [ ] Priorização automática de tarefas
+- [ ] Sugestões de ação contextuais
+- [ ] Dashboard web interativo
+
+---
+
+## Demonstração
+
+**Site Narrativo:** https://keen-refuge-kfr6.here.now/
+
+Site criado com here.now contando a história do projeto. Expira em 24h (modo anônimo).
+
+Para tornar permanente: https://here.now/claim?slug=keen-refuge-kfr6&token=e26c5535ee229050a12145c03c06ed946ecf4804eca414be948c73ada2d23e77
 
 ---
 
@@ -216,6 +247,7 @@ git status
 - **[Manual Supabase](40_Documentos/41_supabase/MANUAL_SUPABASE.md)** - Documentação completa
 - **[Schema PostgreSQL](40_Documentos/41_supabase/SCHEMA_POSTGRESQL.md)** - Definição das tabelas
 - **[Guia Rápido](40_Documentos/41_supabase/GUIA_RAPIDO.md)** - Comandos essenciais
+- **[Diagnóstico T1.5.3](40_DOCUMENTOS/DIAGNOSTICO_CAPACIDADES_T1.5.3.md)** - Capacidades e possibilidades
 
 ---
 
@@ -223,7 +255,7 @@ git status
 
 ```bash
 # Instalar dependências
-pip install supabase python-dotenv
+pip install supabase python-dotenv google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
 
 # Verificar instalação
 python -c "from supabase import create_client; print('OK')"
@@ -235,5 +267,6 @@ python -c "from supabase import create_client; print('OK')"
 
 | Versão | Data | Mudanças |
 |--------|------|----------|
+| 1.2 | 2026-04-14 | Site narrativo publicado, roadmap atualizado, análise automação |
 | 1.1 | 2026-04-14 | Migração para Supabase, client Python |
 | 1.0 | 2026-04-13 | Versão inicial com SQLite e Google Workspace |
