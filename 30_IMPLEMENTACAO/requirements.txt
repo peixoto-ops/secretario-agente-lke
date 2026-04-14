@@ -1,0 +1,13 @@
+# Secretário-Agente LKE - Dependências Python
+
+# Google Workspace
+google-auth>=2.49.0
+google-auth-oauthlib>=1.3.0
+google-auth-httplib2>=0.3.0
+google-api-python-client>=2.194.0
+
+# Requisições HTTP
+requests>=2.32.0
+
+# Fabric para resumos semânticos
+fabric>=0.1.0
