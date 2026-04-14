@@ -488,7 +488,7 @@ def cmd_cliente(args):
     conn.close()
     return
     
-    if hasattr(args, 'nome') and args.nome or hasattr(args, 'cpf') and args.cpf:
+    if (hasattr(args, 'nome') and args.nome) or (hasattr(args, 'cpf') and args.cpf):
         conn = get_connection()
         cursor = conn.cursor()
         # Buscar cliente específico
