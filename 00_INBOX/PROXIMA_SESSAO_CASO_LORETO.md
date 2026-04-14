@@ -1,3 +1,17 @@
+---
+status: pending
+created: 2026-04-14
+tipo: demanda
+tags: [caso-loreto, proxima-sessao, cli, integracao]
+related:
+  - "[[RELATORIO_SESSAO_20260414]]"
+  - "[[STATUS_ATUAL]]"
+proximos_passos:
+  - Implementar comando add-repo no CLI
+  - Integrar hook git post-commit
+  - Criar comando sessao-finalizar
+---
+
 # PRÓXIMA SESSÃO - NOTA
 
 **Data:** 2026-04-14

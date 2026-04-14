@@ -9,15 +9,14 @@
 ```
 secretario-agente-lke/
 │
-├── 00_INBOX/                    # Entrada de demandas e inputs
-│   ├── ANALISE_SCHEMA_POSTGRES.md
-│   └── STATUS_ATUAL.md
+├── 00_INBOX/                    # Caixa de entrada de demandas
+│   ├── 01_ARQUIVADAS/           # Demandas resolvidas (não se misturam)
+│   ├── FLUXO_INBOX.md           # Documentação do fluxo
+│   ├── STATUS_ATUAL.md          # Visão geral do sistema
+│   └── [demandas pendentes].md  # Notas com status: pending
 │
 ├── 10_REFERENCIAS/              # Documentação de referência
 │   ├── credentials/             # CREDENCIAIS SENSÍVEIS (gitignored)
-│   │   ├── client_secret.json   # OAuth 2.0 Client Secret
-│   │   ├── infoclient.txt       # Info do Client ID
-│   │   └── README.md            # Documentação das credenciais
 │   ├── secretario.db            # SQLite local (LEGADO)
 │   └── STATUS_CREDENCIAIS_GOOGLE.md
 │
@@ -25,42 +24,41 @@ secretario-agente-lke/
 │   └── PROPOSTA_SECRETARIO_AGENTE.md
 │
 ├── 30_IMPLEMENTACAO/            # Scripts e código
-│   ├── hermes_supabase_client.py  # Client Python para Supabase
-│   ├── migrate_to_supabase.py     # Script de migração SQLite→Supabase
-│   ├── secretario_cli.py          # CLI legado (SQLite)
-│   └── coletor_github.py          # Coleta de dados GitHub
+│   ├── hermes_supabase_client.py
+│   ├── migrate_to_supabase.py
+│   ├── secretario_cli.py
+│   └── coletor_github.py
 │
 ├── 40_DOCUMENTOS/               # Relatórios e documentação
-│   ├── 41_supabase/             # Documentação do Supabase
-│   │   ├── MANUAL_SUPABASE.md   # Manual completo
-│   │   ├── SCHEMA_POSTGRESQL.md # Schema do banco
-│   │   └── GUIA_RAPIDO.md       # Comandos essenciais
-│   ├── DIAGNOSTICO_CAPACIDADES_T1.5.3.md
-│   ├── ANALISE_AUTOMACAO_LKE_GH_OPS_AUDITOR.md
-│   ├── relatorio_consolidado.json
-│   └── RELATORIO_SECRETARIO_AGENTE.md
-│
-├── 40_Documentos/               # Análises adicionais
+│   ├── 41_supabase/
+│   │   ├── MANUAL_SUPABASE.md
+│   │   ├── SCHEMA_POSTGRESQL.md
+│   │   └── GUIA_RAPIDO.md
+│   └── ...
 │
 ├── 50_CRON_JOBS/                # Configurações cron
-│   └── secretario-diario.sh
-│
 ├── 60_DIAGNOSTICOS/             # Logs e diagnósticos
-│
 ├── 90_META/                     # Documentação meta
-│   ├── CATALOGO_REPOSITORIOS.md
-│   ├── ESTRUTURA_JOHNNY_DECIMAL.md
-│   └── SESSAO_PRATICA_T1.5.4_20260413.md
 │
 ├── site-narrativo/              # Site de demonstração
-│   ├── index.html
-│   └── css/style.css
-│
 ├── .env                         # Variáveis de ambiente (gitignored)
 ├── .gitignore                   # Proteção de credenciais
-├── venv/                        # Ambiente virtual Python
 └── README.md                    # Este arquivo
 ```
+
+---
+
+## Fluxo da Caixa de Entrada
+
+Ver [[00_INBOX/FLUXO_INBOX.md]] para documentação completa.
+
+### Status das Notas
+
+| Status | Significado | Local |
+|--------|-------------|-------|
+| `pending` | Aguardando ação | `00_INBOX/` |
+| `in_progress` | Sendo trabalhada | `00_INBOX/` |
+| `resolved` | Concluída, arquivada | `00_INBOX/01_ARQUIVADAS/` |
 
 ---
 
@@ -97,7 +95,6 @@ O sistema foi migrado de SQLite para PostgreSQL no Supabase, criando um "cérebr
 cd /media/peixoto/Portable/secretario-agente-lke
 source venv/bin/activate
 
-# Comandos disponíveis
 python 30_IMPLEMENTACAO/hermes_supabase_client.py matters
 python 30_IMPLEMENTACAO/hermes_supabase_client.py matter "Leonardo"
 python 30_IMPLEMENTACAO/hermes_supabase_client.py clients
@@ -145,8 +142,6 @@ O Secretário-Agente é o **guardião centralizado** de todas as credenciais e t
 
 **Local seguro:** `10_REFERENCIAS/credentials/` (protegido por .gitignore)
 
-**Referências no banco:** A tabela `vault_credentials` armazena apenas REFERÊNCIAS, nunca os valores.
-
 ### Gerenciador de Agenda
 
 Integração com:
@@ -177,22 +172,12 @@ Entrega diária via Telegram:
 | `tools` | 4 |
 | `vault_credentials` | 3 |
 
-### Repositórios Mapeados
-
-| Nome | Node | Path |
-|------|------|------|
-| ekwrio | Aspire | /media/peixoto/Portable/ekwrio |
-| caso-leonardo-tepedino | Inspirion | /media/peixoto/Portable/caso-leonardo-tepedino |
-| caso-loreto-vivas | Inspirion | /media/peixoto/Portable/caso-loreto-vivas |
-| lke-processos-hub | Aspire | /home/peixoto/repos/lke-processos-hub |
-| secretary-agente-lke | Aspire | /media/peixoto/Portable/secretario-agente-lke |
-| ... | ... | ... |
-
 ---
 
-## Roadmap Atualizado
+## Roadmap
 
 ### Fase 1 - Fundação ✅ (Concluída)
+
 - [x] Estrutura de diretórios Johnny.Decimal
 - [x] Autenticar OAuth2 com Google Workspace
 - [x] Testar acesso ao Google Calendar
@@ -200,29 +185,45 @@ Entrega diária via Telegram:
 - [x] Migrar para Supabase/PostgreSQL
 - [x] Criar client Python para consultas
 - [x] Implementação inicial do módulo de redistribuição
+- [x] Instalar e avaliar skill stealth-browser
+- [x] Atualização do Zotero 9 com integridade preservada
 
 ### Fase 2 - Integração ◐ (Em Andamento)
+
 - [ ] Integrar como skill do Hermes Agent
 - [ ] Implementar funções de escrita (criar registros)
 - [ ] Configurar Row Level Security (RLS)
 - [ ] Primeira execução automatizada via cron
-- [x] Análise de automação lke_gh_ops_auditor
+- [ ] Debuggar CLI `cmd_cliente()`
+- [ ] Implementar comando `add-repo` no CLI
+- [ ] Criar hook git post-commit para registro automático
 
 ### Fase 3 - Inteligência (Futuro)
+
 - [ ] Detecção de padrões de atividade
 - [ ] Priorização automática de tarefas
 - [ ] Sugestões de ação contextuais
 - [ ] Dashboard web interativo
+- [ ] Avaliar API Jusbrasil comercial (alternativa ao stealth-browser para STJ)
+- [ ] Investigar playwright-scraper como alternativa OSINT
+
+---
+
+## Demandas Pendentes (00_INBOX)
+
+| Nota | Status | Próximos Passos |
+|------|--------|-----------------|
+| VERIFICACAO_RESPOSTA_GEMINI | pending | Verificar manualmente Google Drive |
+| RELATORIO_SESSAO_20260414 | in_progress | Debuggar CLI cliente |
+| PROXIMA_SESSAO_CASO_LORETO | pending | Implementar add-repo |
+| ANALISE_SCHEMA_POSTGRES | pending | Decidir hospedagem final |
+| Docker Kali no Inspirion | pending | Avaliar necessidade vs API Jusbrasil |
 
 ---
 
 ## Demonstração
 
 **Site Narrativo:** https://keen-refuge-kfr6.here.now/
-
-Site criado com here.now contando a história do projeto. Expira em 24h (modo anônimo).
-
-Para tornar permanente: https://here.now/claim?slug=keen-refuge-kfr6&token=e26c5535ee229050a12145c03c06ed946ecf4804eca414be948c73ada2d23e77
 
 ---
 
@@ -233,31 +234,21 @@ Para tornar permanente: https://here.now/claim?slug=keen-refuge-kfr6&token=e26c5
 - `.env` (variáveis de ambiente)
 - `venv/` (ambiente virtual)
 
-Para verificar proteção:
-```bash
-cd /media/peixoto/Portable/secretario-agente-lke
-git status
-# credentials/ e .env não devem aparecer
-```
-
 ---
 
 ## Documentação
 
-- **[Manual Supabase](40_Documentos/41_supabase/MANUAL_SUPABASE.md)** - Documentação completa
-- **[Schema PostgreSQL](40_Documentos/41_supabase/SCHEMA_POSTGRESQL.md)** - Definição das tabelas
-- **[Guia Rápido](40_Documentos/41_supabase/GUIA_RAPIDO.md)** - Comandos essenciais
-- **[Diagnóstico T1.5.3](40_DOCUMENTOS/DIAGNOSTICO_CAPACIDADES_T1.5.3.md)** - Capacidades e possibilidades
+- **[Manual Supabase](40_DOCUMENTOS/41_supabase/MANUAL_SUPABASE.md)** - Documentação completa
+- **[Schema PostgreSQL](40_DOCUMENTOS/41_supabase/SCHEMA_POSTGRESQL.md)** - Definição das tabelas
+- **[Guia Rápido](40_DOCUMENTOS/41_supabase/GUIA_RAPIDO.md)** - Comandos essenciais
+- **[Fluxo Inbox](00_INBOX/FLUXO_INBOX.md)** - Sistema de demandas
 
 ---
 
 ## Dependências
 
 ```bash
-# Instalar dependências
 pip install supabase python-dotenv google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
-
-# Verificar instalação
 python -c "from supabase import create_client; print('OK')"
 ```
 
@@ -267,6 +258,7 @@ python -c "from supabase import create_client; print('OK')"
 
 | Versão | Data | Mudanças |
 |--------|------|----------|
-| 1.2 | 2026-04-14 | Site narrativo publicado, roadmap atualizado, análise automação |
+| 1.3 | 2026-04-14 | Fluxo de inbox com arquivamento, notas organizadas |
+| 1.2 | 2026-04-14 | Site narrativo publicado, roadmap atualizado |
 | 1.1 | 2026-04-14 | Migração para Supabase, client Python |
 | 1.0 | 2026-04-13 | Versão inicial com SQLite e Google Workspace |

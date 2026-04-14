@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermes x Secretário - Integração de Skills</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --hermes-blue: #0288d1;
+            --hermes-gold: #ffc107;
+            --secretario-orange: #ff9800;
+            --mem0-purple: #7b1fa2;
+            --bg-dark: #1a1a2e;
+            --bg-card: #16213e;
+            --text-light: #e8e8e8;
+            --text-muted: #a0a0a0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #0f0f23 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--hermes-blue), var(--hermes-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-number.blue { color: var(--hermes-blue); }
+        .stat-number.gold { color: var(--hermes-gold); }
+        .stat-number.orange { color: var(--secretario-orange); }
+        .stat-number.purple { color: var(--mem0-purple); }
+        
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .section h2 {
+            color: var(--hermes-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--hermes-blue);
+            padding-bottom: 0.5rem;
+        }
+        
+        .mermaid {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .skills-table th,
+        .skills-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .skills-table th {
+            background: rgba(2, 136, 209, 0.2);
+            color: var(--hermes-blue);
+            font-weight: 600;
+        }
+        
+        .skills-table tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .skill-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .badge-workflow { background: var(--hermes-blue); }
+        .badge-analysis { background: var(--mem0-purple); }
+        .badge-correction { background: #d32f2f; }
+        .badge-creation { background: #388e3c; }
+        .badge-integration { background: var(--secretario-orange); }
+        
+        .gap-alert {
+            background: linear-gradient(135deg, #ff5252 0%, #ff8a80 100%);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #b71c1c;
+        }
+        
+        .gap-alert h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .opportunity-box {
+            background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2e7d32;
+        }
+        
+        .code-block {
+            background: #0d1117;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .code-block code {
+            color: #c9d1d9;
+        }
+        
+        .flow-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .flow-step {
+            flex: 1;
+            min-width: 180px;
+            background: var(--bg-dark);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .flow-step-number {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            line-height: 2rem;
+            border-radius: 50%;
+            background: var(--hermes-blue);
+            color: white;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .stat-number { font-size: 2.5rem; }
+            .flow-steps { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hermes x Secretário - Integração de Skills</h1>
+            <p class="subtitle">Sessão T1.5.7 | Diagnóstico de Memória Desacoplada | 14/04/2026</p>
+        </header>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number blue">23</div>
+                <div class="stat-label">Skills Jurídicas Hermes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number gold">17</div>
+                <div class="stat-label">Tabelas Secretário</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number orange">1</div>
+                <div class="stat-label">Tabela Faltando</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number purple">2.2KB</div>
+                <div class="stat-label">Memória Hermes</div>
+            </div>
+        </div>
+        
+        <section class="section">
+            <h2>Arquitetura de Memória Desacoplada</h2>
+            
+            <div class="mermaid">
+flowchart TB
+    subgraph Hermes["HERMES AGENT"]
+        HM[Memory 2.2KB<br/>Preferências/Corretivos]
+        HS[Skills ~/.hermes/skills/<br/>23 jurídicas]
+        HD[delegate_task<br/>Subagentes]
+    end
+    
+    subgraph Secretario["SECRETÁRIO-AGENTE"]
+        SQ[SQLite Local<br/>secretario.db]
+        SP[Supabase PostgreSQL<br/>Entidades Relacionais]
+        SC[secretario_cli.py<br/>CLI de Consultas]
+    end
+    
+    subgraph Memoria["MEM0 ILIMITADO"]
+        MK[Knowledge Base<br/>Documentação/Contexto]
+        MS[Busca Semântica<br/>OpenRouter API]
+    end
+    
+    HM --> F1
+    HS --> F1
+    F1[1. Detecta consulta] --> F2[2. Delega]
+    F2 --> SC
+    SC --> SQ
+    SC --> SP
+    SQ --> F3[3. Consulta]
+    SP --> F3
+    F3 --> F4[4. Retorna JSON]
+    F4 --> HD
+    HD --> F5[5. Usa resposta]
+    F5 --> MK
+    
+    MK -.-> MS
+    
+    style Hermes fill:#0288d1,color:#fff
+    style Secretario fill:#ff9800,color:#fff
+    style Memoria fill:#7b1fa2,color:#fff
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Fluxo de Delegação</h2>
+            
+            <div class="mermaid">
+sequenceDiagram
+    participant U as Usuário
+    participant H as Hermes
+    participant S as Secretário CLI
+    participant DB as Supabase
+    
+    U->>H: "Quais processos do cliente X?"
+    H->>H: Detecta consulta relacional
+    H->>S: terminal/delegate_task
+    S->>DB: SELECT com JOINs
+    DB-->>S: Resultados
+    S-->>H: JSON estruturado
+    H->>H: Formata resposta
+    H-->>U: Resposta final
+    
+    Note over H,S: Memória do Hermes preservada
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Skills Jurídicas Cadastradas</h2>
+            
+            <table class="skills-table">
+                <thead>
+                    <tr>
+                        <th>Skill</th>
+                        <th>Tipo</th>
+                        <th>Função Principal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>secretario-agente-lke</td>
+                        <td><span class="skill-badge badge-integration">Integração</span></td>
+                        <td>Consultas ao banco relacional de entidades</td>
+                    </tr>
+                    <tr>
+                        <td>emergency-legal-case-analysis-protocol</td>
+                        <td><span class="skill-badge badge-analysis">Análise</span></td>
+                        <td>Análise sistemática de casos críticos</td>
+                    </tr>
+                    <tr>
+                        <td>sistema-health-scoring-casos-juridicos</td>
+                        <td><span class="skill-badge badge-analysis">Análise</span></td>
+                        <td>Scoring 0-100 com 10 dimensões</td>
+                    </tr>
+                    <tr>
+                        <td>sistema-gestao-crise-juridica-emergencial</td>
+                        <td><span class="skill-badge badge-correction">Correção</span></td>
+                        <td>Gestão de prazos vencidos e risco</td>
+                    </tr>
+                    <tr>
+                        <td>sistema-criacao-repositorio-satelite</td>
+                        <td><span class="skill-badge badge-creation">Criação</span></td>
+                        <td>Repositórios satélite LKE</td>
+                    </tr>
+                    <tr>
+                        <td>migracao-sqlite-para-supabase</td>
+                        <td><span class="skill-badge badge-integration">Integração</span></td>
+                        <td>Workflow de migração de banco</td>
+                    </tr>
+                    <tr>
+                        <td>commits-individuais-ordenados</td>
+                        <td><span class="skill-badge badge-workflow">Workflow</span></td>
+                        <td>Commits semânticos com legal_commit</td>
+                    </tr>
+                    <tr>
+                        <td>central-pesquisas-peixoto-ops</td>
+                        <td><span class="skill-badge badge-integration">Integração</span></td>
+                        <td>Pesquisas Johnny.Decimal + MCP</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section class="section">
+            <h2>Gap Identificado</h2>
+            
+            <div class="gap-alert">
+                <h3>TABELA AUSENTE: agent_skills</h3>
+                <p>O banco do Secretário possui 17 tabelas, mas NENHUMA tabela para rastrear as 23 skills jurídicas do Hermes.</p>
+                <p>Isso impede:</p>
+                <ul>
+                    <li>Rastreabilidade de uso de skills por sessão</li>
+                    <li>Consultas relacionais sobre skills</li>
+                    <li>Integração automática Hermes → Secretário</li>
+                </ul>
+            </div>
+            
+            <h3 style="margin-top: 1.5rem; color: var(--hermes-gold);">Schema Proposto</h3>
+            
+            <div class="code-block">
+<code>CREATE TABLE agent_skills (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    nome VARCHAR(100) UNIQUE NOT NULL,
+    categoria VARCHAR(50),
+    descricao TEXT,
+    path TEXT NOT NULL,
+    ferramentas JSONB,
+    triggers JSONB,
+    uso_count INT DEFAULT 0,
+    ultima_utilizacao TIMESTAMP,
+    ativo BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE sessao_skills (
+    sessao_id UUID REFERENCES sessoes(id),
+    skill_id UUID REFERENCES agent_skills(id),
+    resultado VARCHAR(50),
+    duracao_segundos INT
+);</code>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Benefícios da Integração</h2>
+            
+            <div class="opportunity-box">
+                <h3>Liberação de Memória Hermes</h3>
+                <p>Com o Secretário consolidando entidades relacionais, o Hermes pode manter apenas preferências essenciais (~500 bytes), delegando todas as consultas relacionais.</p>
+            </div>
+            
+            <h3 style="margin-top: 1.5rem; color: var(--hermes-gold);">Fluxo de Consulta</h3>
+            
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-step-number">1</div>
+                    <div>Hermes detecta<br/>consulta relacional</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="flow-step-number">2</div>
+                    <div>Chama<br/>secretario_cli.py</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="flow-step-number">3</div>
+                    <div>Secretário consulta<br/>Supabase</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="flow-step-number">4</div>
+                    <div>Retorna JSON<br/>estruturado</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="flow-step-number">5</div>
+                    <div>Hermes usa<br/>sem armazenar</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Próximos Passos</h2>
+            
+            <div class="code-block">
+<code># 1. Criar tabela no Supabase
+python -c "
+from supabase import create_client
+sb = create_client(URL, KEY)
+sb.table('agent_skills').insert({
+    'nome': 'secretario-agente-lke',
+    'categoria': 'juridico',
+    'path': '~/.hermes/skills/juridico/secretario-agente-lke/'
+}).execute()
+"
+
+# 2. Sync de todas as skills
+python sync_skills_to_supabase.py
+
+# 3. Validar
+python secretario_cli.py query "SELECT * FROM agent_skills"</code>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Hermes Agent | Sessão T1.5.7 | 14/04/2026</p>
+            <p>Diagnóstico: Skills Hermes x Secretário-Agente | Memória Desacoplada LKE v5.0</p>
+        </footer>
+    </div>
+    
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    </script>
+</body>
+</html>

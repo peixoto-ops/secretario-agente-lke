@@ -1,3 +1,14 @@
+---
+status: active
+created: 2026-04-14
+updated: 2026-04-14
+tipo: documento_sistema
+tags: [status, visao-geral, supabase, migracao]
+related:
+  - "[[FLUXO_INBOX]]"
+  - "[[ANALISE_SCHEMA_POSTGRES]]"
+---
+
 # Secretário-Agente LKE - Status Atual
 
 **Data:** 2026-04-14
@@ -24,8 +35,8 @@
 
 ```
 30_IMPLEMENTACAO/
-├── hermes_supabase_client.py   # Client Python para consultas
-└── migrate_to_supabase.py      # Script de migração (executado)
+├── hermes_supabase_client.py # Client Python para consultas
+└── migrate_to_supabase.py # Script de migração (executado)
 ```
 
 ---
@@ -78,13 +89,13 @@ python 30_IMPLEMENTACAO/hermes_supabase_client.py sessions
 
 ```sql
 -- Principais tabelas
-clients          -- Clientes/Pessoas
-repositories     -- Repositórios e cofres
-matters          -- Processos judiciais
-tools            -- Ferramentas (fabric, hermes, etc.)
-agent_skills     -- Skills de agentes
+clients -- Clientes/Pessoas
+repositories -- Repositórios e cofres
+matters -- Processos judiciais
+tools -- Ferramentas (fabric, hermes, etc.)
+agent_skills -- Skills de agentes
 vault_credentials -- Referências de credenciais
-work_sessions    -- Log de sessões
+work_sessions -- Log de sessões
 ```
 
 ---

@@ -70,3 +70,4 @@ Thumbs.db
 .trash#Binarios
 *.pdf
 *.odt
+.env.local
