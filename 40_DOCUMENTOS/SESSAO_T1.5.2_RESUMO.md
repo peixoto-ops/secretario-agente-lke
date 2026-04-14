@@ -102,9 +102,9 @@ secretario-agente-lke/
 
 ## Commits Realizados
 
-| Commit | Mensagem |
-|--------|----------|
-| a3a7844 | feat: estrutura inicial do Secretário-Agente LKE |
+| Commit  | Mensagem                                                        |
+| ------- | --------------------------------------------------------------- |
+| a3a7844 | feat: estrutura inicial do Secretário-Agente LKE                |
 | 8bc5b6c | feat(t1.5.3): planejamento sessão configuração Google Workspace |
 
 ---
@@ -139,7 +139,7 @@ secretario-agente-lke/
 ## Aprendizados
 
 1. **Segurança primeiro:** Credenciais nunca em repositórios
-2. **Guardião centralizado:** Um repositório para gerenciar todas as chaves
+ 2. **Guardião centralizado:** Um repositório para gerenciar todas as chaves
 3. **Documentação incidentes:** Transparência sobre falhas
 4. **Planejamento estruturado:** Johnny.Decimal facilita organização
 
