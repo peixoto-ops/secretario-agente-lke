@@ -14,13 +14,13 @@ RELATÓRIO MATINAL - 14/04/2026
 --------------------------------------------------
 
   📁 Lista de luizpeixoto.adv (16 tarefas)
+    □ Protocolar Emenda à Inicial - Leona... 📅 2026-04-23
+    □ Prazo Fatal: Emenda à Inicial - Cas... 📅 2026-05-06
     □ [BLITZ] Comunicação e Onboarding... 🔴 ATRASADA
     □ [DEEP WORK] Família Sá: Finalizar L... 🔴 ATRASADA
     □ [DEEP WORK] Dianne Nicola: Cataloga... 🟡 HOJE
-    □ Catalogar Documentos (Tabela MRSA) ... 🔴 ATRASADA
-    □ Onboarding e Criação de Repositório... 🟡 HOJE
 
-  Total: 16 tarefas | 🔴 3 atrasadas | 🟡 2 hoje
+  Total: 16 tarefas | 🔴 2 atrasadas | 🟡 1 hoje
 
 📁 REPOSITÓRIOS
 --------------------------------------------------
@@ -28,13 +28,13 @@ RELATÓRIO MATINAL - 14/04/2026
   secretario-agente-lke: 🟢 ATIVO HOJE | docs: adiciona nota para próxi...
   lke-processos-hub: 🟡 1d | docs: diagnostico completo, in...
   ekwrio: 🟡 2d | docs(reestruturacao): resumo c...
-  case-diane-nicola-ops: 🟠 3d | draft(petition): criação de no...
   caso-leonardo-tepedino: 🟠 3d | docs(workflow): atualização do...
+  case-diane-nicola-ops: 🟠 4d | draft(petition): criação de no...
   case-patricia-w-vs-cedae-serasa-ops: 🔴 47d | docs(client): Adição de gravaç...
 
 ⚠️ ALERTAS
 --------------------------------------------------
   🔴 case-patricia-w-vs-cedae-serasa-ops: 47 dias sem movimento
-  🔴 3 tarefas atrasadas
+  🔴 2 tarefas atrasadas
 
 ══════════════════════════════════════════════════
