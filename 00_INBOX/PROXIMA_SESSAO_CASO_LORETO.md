@@ -2,36 +2,43 @@
 
 **Data:** 2026-04-14
 **Repositório alvo:** caso-loreto-vivas
+**Status:** VALIDADO
 
 ---
 
-## Planejamento
+## Resultado da Sessão T1.1
 
-Testar as ferramentas do Secretário-Agente no repositório `/media/peixoto/Portable/caso-loreto-vivas`:
+Fluxo do Secretário-Agente validado com sucesso:
 
-1. Verificar atividade recente (`git log`, commits, branches)
-2. Registrar o repositório no banco (se não estiver cadastrado)
-3. Criar sessão de trabalho com resumo Fabric
-4. Registrar artefatos e atividades no banco
-5. Testar query SQL para recuperar histórico
+1. Repositório caso-loreto-vivas cadastrado no banco (ID novo)
+2. Sessão de trabalho registrada com tipo T1.1
+3. Atividade (commit) logada com hash
+4. Queries SQL funcionando (incluindo --json)
+5. Status geral mostrando corretamente
 
 ---
 
-## Comandos para iniciar
+## Próximos Passos
+
+1. Implementar comando `add-repo` no CLI
+2. Integrar com hook git post-commit para registro automático
+3. Criar comando `sessao-finalizar` para gerar resumo Fabric
+4. Testar recuperação de histórico por período
+
+---
+
+## Comandos utilizados
 
 ```bash
-cd /media/peixoto/Portable/caso-loreto-vivas
-git log --oneline -10
-git status
+# Cadastrar repositório (via SQL por enquanto)
+python 30_IMPLEMENTACAO/secretario_cli.py query "INSERT INTO repositorios..."
 
-cd /media/peixoto/Portable/secretario-agente-lke
-source venv/bin/activate
+# Criar sessão
+python 30_IMPLEMENTACAO/secretario_cli.py sessao --titulo "..." --repo caso-loreto-vivas --tipo T1.1
+
+# Registrar atividade
+python 30_IMPLEMENTACAO/secretario_cli.py log --repo caso-loreto-vivas --tipo commit --mensagem "..." --hash abc123
+
+# Status geral
 python 30_IMPLEMENTACAO/secretario_cli.py status
-python 30_IMPLEMENTACAO/secretario_cli.py repos
 ```
-
----
-
-## Objetivo
-
-Validar na prática o fluxo de registro de sessões e consultas, usando um caso real do portfólio.
