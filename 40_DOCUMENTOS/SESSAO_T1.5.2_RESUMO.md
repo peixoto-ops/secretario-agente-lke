@@ -1,4 +1,4 @@
-# SESSÃO T1.5.2 - Resumo Executivo
+  # SESSÃO T1.5.2 - Resumo Executivo
 
 **Data:** 2026-04-13  
 **Duração:** ~90 minutos  
