@@ -71,3 +71,13 @@ Thumbs.db
 *.pdf
 *.odt
 .env.local
+
+# ==========================================
+# ARQUIVOS COM CONTEÚDO DESALINHADO (RAIZ)
+# ==========================================
+
+# Arquivos gerados por agentes com contexto degradado
+*_RAIZ.md
+*_RAIZ.pdf
+*_RAIZ.txt
+*_RAIZ.html
