@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Skills Jurídicas - LKE v5.0</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+        }
+        .header { 
+            text-align: center; 
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 16px;
+            border: 1px solid #334155;
+            backdrop-filter: blur(10px);
+        }
+        .title { 
+            font-size: 2.5rem; 
+            font-weight: 700;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle { 
+            font-size: 1.1rem; 
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+        .stats { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .stat-card { 
+            background: rgba(15, 23, 42, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            min-width: 200px;
+            text-align: center;
+        }
+        .stat-number { 
+            font-size: 2.5rem; 
+            font-weight: 700;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-label { 
+            font-size: 0.9rem; 
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        .alert { 
+            background: linear-gradient(90deg, #dc2626, #991b1b);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 1px solid #f87171;
+        }
+        .skills-grid { 
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .skill-card { 
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .skill-card:hover { 
+            transform: translateY(-5px);
+            border-color: #60a5fa;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .skill-name { 
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .skill-desc { 
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .skill-meta { 
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            border-top: 1px solid #334155;
+            padding-top: 10px;
+        }
+        .badge { 
+            background: #1e40af;
+            color: #dbeafe;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .footer { 
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #334155;
+        }
+        @media (max-width: 768px) {
+            .skills-grid { grid-template-columns: 1fr; }
+            .stats { flex-direction: column; align-items: center; }
+            .stat-card { width: 100%; max-width: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">📚 Skills Jurídicas LKE v5.0</h1>
+            <p class="subtitle">Sistema de Cognição Desacoplada - Advogado Luiz Peixoto (OAB/RJ 94719)</p>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">39</div>
+                    <div class="stat-label">Skills no Hermes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Skills no Banco Local</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Skills no Supabase</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert">
+            <strong>🚨 ALERTA DE EMERGÊNCIA:</strong> Sistema completamente dessincronizado. 
+            35 skills faltando no banco local. Nenhuma skill no Supabase. 
+            <a href="#" style="color: #fbbf24; text-decoration: none; margin-left: 10px;">Ver relatório completo</a>
+        </div>
+
+        <h2 style="margin: 30px 0 20px 0; color: #e2e8f0;">Todas as Skills Disponíveis (39)</h2>
+        
+        <div class="skills-grid">
+
+            <div class="skill-card" onclick="alert('Skill: analise-documental-emergencial-casos-juridicos')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    analise-documental-emergencial-casos-juridicos
+                </div>
+                <div class="skill-desc">
+                    name: analise-documental-emergencial-casos-juridicos
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 analise-documental-emergencial-casos-juridicos</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: central-pesquisas-peixoto-ops')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    central-pesquisas-peixoto-ops
+                </div>
+                <div class="skill-desc">
+                    name: central-pesquisas-peixoto-ops
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 central-pesquisas-peixoto-ops</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: commits-individuais-ordenados-cronologicamente')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    commits-individuais-ordenados-cronologicamente
+                </div>
+                <div class="skill-desc">
+                    name: commits-individuais-ordenados-cronologicamente
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 commits-individuais-ordenados-cronologicamente</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: correcao-projeto-dashboard-unificado')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    correcao-projeto-dashboard-unificado
+                </div>
+                <div class="skill-desc">
+                    name: correcao-projeto-dashboard-unificado
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 correcao-projeto-dashboard-unificado</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: emergency-legal-case-analysis-protocol')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    emergency-legal-case-analysis-protocol
+                </div>
+                <div class="skill-desc">
+                    name: Emergency Legal Case Analysis Protocol
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 emergency-legal-case-analysis-protocol</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: execute-opencode-commits-individuais-workflow')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    execute-opencode-commits-individuais-workflow
+                </div>
+                <div class="skill-desc">
+                    name: execute-opencode-commits-individuais-workflow
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 execute-opencode-commits-individuais-workflow</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: fluxo-sessoes-auditoria-lke')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    fluxo-sessoes-auditoria-lke
+                </div>
+                <div class="skill-desc">
+                    name: fluxo-sessoes-auditoria-lke
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 fluxo-sessoes-auditoria-lke</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: git-init-safe-check')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    git-init-safe-check
+                </div>
+                <div class="skill-desc">
+                    name: git-init-safe-check
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 git-init-safe-check</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: google-drive-download-assets')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    google-drive-download-assets
+                </div>
+                <div class="skill-desc">
+                    name: google-drive-download-assets
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 google-drive-download-assets</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: migracao-sqlite-para-supabase')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    migracao-sqlite-para-supabase
+                </div>
+                <div class="skill-desc">
+                    name: migracao-sqlite-para-supabase
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 migracao-sqlite-para-supabase</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: reestruturacao-repositorio-legado-links-quebrados')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    reestruturacao-repositorio-legado-links-quebrados
+                </div>
+                <div class="skill-desc">
+                    name: reestruturacao-repositorio-legado-links-quebrados
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 reestruturacao-repositorio-legado-links-quebrados</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: resgate-arquivos-perdidos-secretario-lke')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    resgate-arquivos-perdidos-secretario-lke
+                </div>
+                <div class="skill-desc">
+                    name: resgate-arquivos-perdidos-secretario-lke
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 resgate-arquivos-perdidos-secretario-lke</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: resolucao-fluxo-inbox-secretario')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    resolucao-fluxo-inbox-secretario
+                </div>
+                <div class="skill-desc">
+                    name: resolucao-fluxo-inbox-secretario
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 resolucao-fluxo-inbox-secretario</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: secretario-agente-lke')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    secretario-agente-lke
+                </div>
+                <div class="skill-desc">
+                    name: secretario-agente-lke
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 secretario-agente-lke</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: secretario-validacao-cruzada-sync')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    secretario-validacao-cruzada-sync
+                </div>
+                <div class="skill-desc">
+                    name: secretario-validacao-cruzada-sync
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 secretario-validacao-cruzada-sync</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sessao-t1.4.3-dashboard-streamlit-duplicate-key-fix')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sessao-t1.4.3-dashboard-streamlit-duplicate-key-fix
+                </div>
+                <div class="skill-desc">
+                    name: sessao-t1.4.3-dashboard-streamlit-duplicate-key-fix
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sessao-t1.4.3-dashboard-streamlit-duplicate-key-fix</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-analise-infraestrutura-ingestao-lke')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-analise-infraestrutura-ingestao-lke
+                </div>
+                <div class="skill-desc">
+                    name: sistema-analise-infraestrutura-ingestao-lke
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-analise-infraestrutura-ingestao-lke</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-analise-ingestao-ecosistema')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-analise-ingestao-ecosistema
+                </div>
+                <div class="skill-desc">
+                    name: sistema-analise-ingestao-ecosistema
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-analise-ingestao-ecosistema</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-avaliacao-risco-propostas-juridicas')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-avaliacao-risco-propostas-juridicas
+                </div>
+                <div class="skill-desc">
+                    name: sistema-avaliacao-risco-propostas-juridicas
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-avaliacao-risco-propostas-juridicas</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-coleta-segura-tailscale')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-coleta-segura-tailscale
+                </div>
+                <div class="skill-desc">
+                    name: sistema-coleta-segura-tailscale
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-coleta-segura-tailscale</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-correcao-contexto-degradado-repositorios-multiplos')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-correcao-contexto-degradado-repositorios-multiplos
+                </div>
+                <div class="skill-desc">
+                    name: Sistema de Correção de Contexto Degradado em Repositórios Múltiplos
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-correcao-contexto-degradado-repositorios-multiplos</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-correcao-dashboard-streamlit-problemas-comuns')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-correcao-dashboard-streamlit-problemas-comuns
+                </div>
+                <div class="skill-desc">
+                    name: sistema-correcao-dashboard-streamlit-problemas-comuns
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-correcao-dashboard-streamlit-problemas-comuns</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-criacao-repositorio-satelite-casos-juridicos')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-criacao-repositorio-satelite-casos-juridicos
+                </div>
+                <div class="skill-desc">
+                    name: sistema-criacao-repositorio-satelite-casos-juridicos
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-criacao-repositorio-satelite-casos-juridicos</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-criacao-templates-reutilizaveis-projetos')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-criacao-templates-reutilizaveis-projetos
+                </div>
+                <div class="skill-desc">
+                    name: sistema-criacao-templates-reutilizaveis-projetos
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-criacao-templates-reutilizaveis-projetos</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-dashboard-streamlit-juridico-lke')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-dashboard-streamlit-juridico-lke
+                </div>
+                <div class="skill-desc">
+                    name: Sistema Dashboard Streamlit Jurídico LKE
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-dashboard-streamlit-juridico-lke</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-gestao-crise-juridica-emergencial')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-gestao-crise-juridica-emergencial
+                </div>
+                <div class="skill-desc">
+                    name: Sistema de Gestão de Crise Jurídica Emergencial
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-gestao-crise-juridica-emergencial</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-guardiao-credenciais-juridico')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-guardiao-credenciais-juridico
+                </div>
+                <div class="skill-desc">
+                    name: sistema-guardiao-credenciais-juridico
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-guardiao-credenciais-juridico</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-health-scoring-casos-juridicos')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-health-scoring-casos-juridicos
+                </div>
+                <div class="skill-desc">
+                    name: Sistema Health Scoring para Casos Jurídicos
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-health-scoring-casos-juridicos</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-implementacao-importador-real-substituicao-stub')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-implementacao-importador-real-substituicao-stub
+                </div>
+                <div class="skill-desc">
+                    name: sistema-implementacao-importador-real-substituicao-stub
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-implementacao-importador-real-substituicao-stub</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-kanban-github-projects-lke')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-kanban-github-projects-lke
+                </div>
+                <div class="skill-desc">
+                    name: sistema-kanban-github-projects-lke
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-kanban-github-projects-lke</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-planejamento-roadmaps-sprints-lke')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-planejamento-roadmaps-sprints-lke
+                </div>
+                <div class="skill-desc">
+                    name: sistema-planejamento-roadmaps-sprints-lke
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-planejamento-roadmaps-sprints-lke</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-recuperacao-repositorios-legados-links-quebrados')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-recuperacao-repositorios-legados-links-quebrados
+                </div>
+                <div class="skill-desc">
+                    name: Sistema de Recuperação de Repositórios Legados com Links Quebrados
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-recuperacao-repositorios-legados-links-quebrados</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-resgate-repositorio-contaminado')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-resgate-repositorio-contaminado
+                </div>
+                <div class="skill-desc">
+                    name: sistema-resgate-repositorio-contaminado
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-resgate-repositorio-contaminado</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-responsividade-multiplataforma-lke')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-responsividade-multiplataforma-lke
+                </div>
+                <div class="skill-desc">
+                    name: sistema-responsividade-multiplataforma-lke
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-responsividade-multiplataforma-lke</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-setup-inicial-projetos-lke-kanban')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-setup-inicial-projetos-lke-kanban
+                </div>
+                <div class="skill-desc">
+                    name: sistema-setup-inicial-projetos-lke-kanban
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-setup-inicial-projetos-lke-kanban</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-validacao-sincronizacao-linear-github')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-validacao-sincronizacao-linear-github
+                </div>
+                <div class="skill-desc">
+                    name: sistema-validacao-sincronizacao-linear-github
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-validacao-sincronizacao-linear-github</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: sistema-versionamento-infraestrutura-pesquisas')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    sistema-versionamento-infraestrutura-pesquisas
+                </div>
+                <div class="skill-desc">
+                    name: sistema-versionamento-infraestrutura-pesquisas
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 sistema-versionamento-infraestrutura-pesquisas</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: validacao-cruzada-notas-ia')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    validacao-cruzada-notas-ia
+                </div>
+                <div class="skill-desc">
+                    name: validacao-cruzada-notas-ia
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">directory</span>
+                    <span>📁 validacao-cruzada-notas-ia</span>
+                </div>
+            </div>
+
+            <div class="skill-card" onclick="alert('Skill: validacao-cruzada-supabase-arquivos')">
+                <div class="skill-name">
+                    <span>🔧</span>
+                    validacao-cruzada-supabase-arquivos
+                </div>
+                <div class="skill-desc">
+                    Fluxo completo para validar dados de notas/relatórios (IA externa) cruzando informações com Supabase...
+                </div>
+                <div class="skill-meta">
+                    <span class="badge">file</span>
+                    <span>📁 arquivo</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>📅 Última atualização: 2026-04-15 21:04</p>
+            <p>👨‍⚖️ Advogado: Luiz Peixoto | 📧 luizpeixoto.adv@gmail.com | 📱 +55 21 96919-1621</p>
+            <p>⚖️ Sistema LKE v5.0 / Cognição Desacoplada | Metodologia MRSA</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #475569;">
+                Esta página é atualizada automaticamente. Para sincronizar skills, execute o script de emergência.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Adicionar funcionalidade básica
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Skills Jurídicas carregadas: 39');
+            
+            // Destacar skills críticas
+            const criticalSkills = ['analise-documental-emergencial-casos-juridicos', 
+                                   'sistema-due-diligence-integrado-juridico',
+                                   'sistema-gestao-crise-juridica-emergencial'];
+            
+            document.querySelectorAll('.skill-card').forEach(card => {
+                const skillName = card.querySelector('.skill-name').textContent.replace('🔧', '').trim();
+                if (criticalSkills.includes(skillName)) {
+                    card.style.borderLeft = '4px solid #ef4444';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
